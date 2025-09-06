@@ -1,0 +1,176 @@
+class alarm
+def __init__(self):
+    print('Welcome to the alarm Station')
+    print('how you want to keep the alarm ,according to minutes or seconds or hours')
+def minutes(self):
+    import datetime
+    import pygame
+
+    date_time = datetime.datetime.today()
+    date_time.time()
+
+    minn = date_time.minute
+    hour = date_time.hour
+
+    print('hour', hour)
+    alarm_min = int(input('So after how many minutes alarm should go: '))
+
+    cal = 60 - minn
+    cal
+
+    total = alarm_min - cal
+
+    if alarm_min > cal:
+        hour = hour + 1
+        if hour > 23:
+            hour = 0
+    
+        total = alarm_min - cal
+    
+        while total > 60:
+            hour = hour + 1
+            total = total - 60
+            if hour > 23:
+                hour = 0
+
+    else:
+        total = minn + alarm_min
+
+    # Handle exact 60 minutes
+    if total == 60:
+        total = 0
+        hour += 1
+        if hour > 23:
+            hour = 0
+
+    print(f'Your Alarm goes off at {hour}:{total}')
+    
+    h = hour
+    t = total
+    
+    while True:
+        date_time = datetime.datetime.today()
+        pour = date_time.hour
+        minn = date_time.minute
+    
+        if pour == h and minn == t:
+            pygame.mixer.init()
+            pygame.mixer.music.load("C:/Users/sampa/Downloads/alarm.wav")
+            pygame.mixer.music.play()
+            stop = input('if u want to pause alarm pls type yes (yes/no)').lower()
+            pygame.mixer.music.stop()
+            break
+        else:
+            continue
+
+
+
+
+    
+def seconds(self):
+    sec = int(input('pls write your no of seconds the alarm should go on: '))
+    import pygame
+    import datetime
+    date_time=datetime.datetime.today()
+    second = date_time.second
+    total_sec = sec + second
+    print(f'{total_sec},{second}')
+    while True:
+        
+        date_time=datetime.datetime.today()
+        second = date_time.second    
+        if total_sec<59 and total_sec==second:
+            pygame.mixer.init()
+            pygame.mixer.music.load("C:/Users/sampa/Downloads/alarm.wav")
+            pygame.mixer.music.play()
+            stop = input('if u want to pause alarm pls type yes (yes/no)').lower()
+    
+            if stop == stop:
+                pygame.mixer.music.stop()
+                
+            break
+    
+        elif total_sec==60:
+            date_time=datetime.datetime.today()
+            minn = date_time.minute
+            m = minn+1   
+            if minn==59:
+                minn=0
+                m=minn+1
+                
+            second = date_time.second
+            while True:
+                date_time=datetime.datetime.today()
+                minnn = date_time.minute
+                second = date_time.second 
+                if m==minnn and  sec == second:
+                    pygame.mixer.init()
+                    pygame.mixer.music.load("C:/Users/sampa/Downloads/alarm.wav")
+                    pygame.mixer.music.play()
+                    stop = input('if u want to pause alarm pls type yes (yes/no)').lower()
+    
+                    if stop == stop:
+                        pygame.mixer.music.stop()
+                        
+                    break
+                else:
+                    continue
+                                    
+            break
+    
+        elif total_sec>59 :
+            alarm_sec=total_sec-60
+            
+            while True:
+                date_time=datetime.datetime.today()
+                second = date_time.second
+                
+                if alarm_sec == second:
+                    pygame.mixer.init()
+                    pygame.mixer.music.load("C:/Users/sampa/Downloads/alarm.wav")
+                    pygame.mixer.music.play()
+                    stop = input('if u want to pause alarm pls type yes (yes/no)').lower()
+            
+                    if stop == stop:
+                        pygame.mixer.music.stop()
+                        break   
+                else:
+                    continue
+            break
+        else:
+            continue
+
+
+def hours(self):
+    import datetime
+    import pygame
+    date_time=datetime.datetime.today()
+    hour = date_time.hour
+    h_choice = int(input('pls input how many hours you want to keep alarm'))
+    print('even though if it is 11:59 morning pls type am only and then proceed')
+    period_of_day = input('pls type if it is AM or PM (am/pm)').lower()
+
+    date_time=datetime.datetime.today()
+    hour = date_time.hour
+    total_hours = h_choice + hour
+    if period_of_day == 'pm' and total_hours > 23:
+        total_hours = total_hours-24
+        print(f'you will get your alarm at {total_hours}') 
+    while True:
+        date_time=datetime.datetime.today()
+        hour = date_time.hour
+        if total_hours == hour:
+            pygame.mixer.init()
+            pygame.mixer.music.load("C:/Users/sampa/Downloads/alarm.wav")
+            pygame.mixer.music.play()
+            stop = input('if u want to pause alarm pls type yes (yes/no)').lower()
+    
+            if stop == stop:
+                pygame.mixer.music.stop()
+                
+            break
+    
+        else:
+            continue
+        
+    
